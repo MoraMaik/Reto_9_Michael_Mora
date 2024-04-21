@@ -1,5 +1,6 @@
 # Reto_9_Michael_Mora
-Desarrollo reto 9, segun lo aprendido en clase de Funciones 2.
+
+Desarrollo reto 9, segun lo aprendido en clase de [Funciones 2](http://https://github.com/fegonzalez7/pdc_unal_clase12 "Funciones 2").
 _______________________________
 ## **Punto 1**
 
@@ -119,3 +120,111 @@ La funcion se ajusta para aceptar multiples numeros y verificar la primalidad de
 
 3. Calcular el factorial de varios numeros
 Similarmente, esta funcion puede ahora tomar varios numeros y calcular el factorial de cada uno.
+
+_______________________________
+## **Punto 3**
+
+**Instrucciones:** Escriba una funcion recursiva para calcular la operacion de la potencia.
+```python
+def potencia(base, exponente):
+
+    # caso base: cualquier numero elevado a 0 es 1
+    if exponente == 0:
+        return 1
+    
+    # caso para exponente negativo: usar la propiedad de que a^-b = 1/a^b
+    elif exponente < 0:
+        return 1 / potencia(base, -exponente)
+    
+    # paso recursivo: multiplicar la base por la potencia de la base al exponente menos uno
+    else:
+        return base * potencia(base, exponente - 1)
+
+# ejemplos de uso de la funion
+    
+print(potencia(2, 3))  # deberia indicar 8
+
+print(potencia(5, 0))  # deberia indicar 1
+
+print(potencia(2, -2))  # deberia indicar 0.25
+```
++ **Caso base**: Cuando el exponente es 0 la funcion retorna 1 directamente, ya que cualquier numero elevado a 0 es 1.
++ **Exponente negativo**: Si el exponente es negativo, la funcion convierte el problema en uno de exponente positivo y luego toma el reciproco del resultado. Esto se hace llamando a la misma funcion con el exponente positivo equivalente (el negativo del exponente actual) y dividiendo 1 por el resultado de esa llamada recursiva.
++ **Paso recursivo**: Para los exponentes positivos, la funcion se llama a si misma con el exponente disminuido en uno hasta que se alcanza el caso base, multiplicando la base cada vez.
+
+_______________________________
+## **Punto 4**
+
+**Instrucciones:** Utilice la siguiente plantilla de code para contar el tiempo:
+```python
+import time
+
+start_time = time.time()
+# instrucciones sobre las cuales se quiere medir tiempo de ejecucion
+end_time = time.time()
+
+timer = end_time - start_time
+print(timer)
+```
+Realice pruebas para calcular fibonacci con iteracion o con recursion. Determine desde que numero de la serie la diferencia de tiempo se vuelve significativa. Importante: Revisar este [hilo](http://https://stackoverflow.com/questions/8220801/how-to-use-timeit-module "hilo") .
+
+```python
+import time
+
+# funcion de Fibonacci usando recursion
+
+def fibonacci_recursivo(n):
+    if n <= 1:
+
+        return n
+    else:
+        return fibonacci_recursivo(n-1) + fibonacci_recursivo(n-2)
+
+# funcion de Fibonacci usando iteracion
+def fibonacci_iterativo(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+# prueba de tiempo de la funcion recursiva
+start_time = time.time()
+
+# cambiar el valor de 'n' para realizar la prueba con diferentes numeros
+fibonacci_recursivo(30)
+end_time = time.time()
+print("Tiempo de ejecucion recursivo:", end_time - start_time)
+
+# prueba de tiempo de la funcion iterativa
+start_time = time.time()
+
+# cambiar el valor de 'n' para realizar la prueba con difrentes numeros
+fibonacci_iterativo(30)
+end_time = time.time()
+
+print("Tiempo de ejecucion iterativo:", end_time - start_time)
+
+```
+Es importante destacar que la version recursiva tiene una complejidad temporal exponencial y puede ser muy lenta para valores grandes de `n`, mientras que la version iterativa tiene una complejidad lineal y es mucho mas rapida.
+
+_______________________________
+## **Punto 5**
+
+**Instrucciones:** Crear cuenta en stackoverflow y adjuntar imagen en el repo
+
+[![image.png](https://i.postimg.cc/y6b5bS03/image.png)](https://postimg.cc/jCyZW2gR)
+
+
+Por alguna razon no deja expresarlo de manera mas simple, este es el link: https://stackoverflow.com/users/24527579/moramaik?tab=profile
+
+_______________________________
+## **Punto 6**
+
+**Instrucciones:** Cosas de adultos....ir a linkedin y crear perfil....NO IMPORTA que esten iniciando, si tienen tiempo para redes poco utiles como fb, insta, o tiktok tienen tiempo para crear un perfil mamalon. Dejar enlace en el repo.
+
+[![image.png](https://i.postimg.cc/MpDmghg3/image.png)](https://postimg.cc/yDDRZr10)
+
+[Link de mi perfil aqui](http://www.linkedin.com/in/michael-kaleth-mora-mejia-2571b2303 "Link de mi perfil aqui")
+
+_______________________________
+**FIN RETO**
